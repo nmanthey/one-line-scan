@@ -1,0 +1,32 @@
+# Author: Norbert Manthey <nmanthey@amazon.de>
+#
+# Develop commenting on PRs
+name: Comment on PR
+
+on:
+  pull_request:
+    # [ACTION REQUIRED] Set the branch you want to analyze PRs for
+    branches: [ master ]
+
+  # [ACTION REQUIRED] Use this, if you want analysis for push to repository as well
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    # Get the code, fetch the full history to make sure we have the compare commit as well
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    # Try commenting
+    - name: comment on PR
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      run: |
+        sudo apt-get install python3-github
+        ./configuration/utils/comment-github-pr.py -r useless.txt
