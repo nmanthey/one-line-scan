@@ -1,3 +1,2 @@
-one-line-cr-bot.sh:130:42: note: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead. [SC2002]
 one-line-cr-bot.sh:502:29: note: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead. [SC2002]
 one-line-cr-bot.sh:503:28: note: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead. [SC2002]
