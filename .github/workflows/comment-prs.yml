@@ -4,13 +4,14 @@
 name: Comment on PR
 
 on:
-  pull_request:
+  pull_request_target:
     # [ACTION REQUIRED] Set the branch you want to analyze PRs for
-    branches: [ master ]
+    branches: '**'
 
   # [ACTION REQUIRED] Use this, if you want analysis for push to repository as well
   push:
-    branches: [ master ]
+    branches:
+      - '**'
 
 jobs:
   build:
