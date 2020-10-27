@@ -146,7 +146,7 @@ if __name__ == "__main__":
 
     logging.basicConfig(
         format="[%(levelname)-7s] %(asctime)s %(name)s {%(pathname)s:%(lineno)d} %(message)s",
-        level="INFO",
+        level="DEBUG",
     )
 
     # In case this module is the starting point, execute the command
