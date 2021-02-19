@@ -20,6 +20,7 @@
 #################### DO NOT MODIFY ##################
 
 # by default, all supported tools have not been found.
+NATIVE_AR=/bin/false
 NATIVE_AS=/bin/false
 NATIVE_GCC=/bin/false
 NATIVE_GPP=/bin/false
@@ -244,6 +245,7 @@ binary_name=$(basename $0)
 
 NATIVE_TOOL=
 case "$binary_name" in
+  "${TOOLPREFIX}ar${TOOLSUFFIX}") NATIVE_TOOL=$NATIVE_AR ;;
   "${TOOLPREFIX}as${TOOLSUFFIX}") NATIVE_TOOL=$NATIVE_AS ;;
   "$TOOLPREFIX""cc""$TOOLSUFFIX" | "$TOOLPREFIX""gcc""$TOOLSUFFIX") NATIVE_TOOL=$NATIVE_GCC ;;
   "$TOOLPREFIX""c++""$TOOLSUFFIX" | "$TOOLPREFIX""g++""$TOOLSUFFIX") NATIVE_TOOL=$NATIVE_GPP ;;
@@ -289,6 +291,9 @@ then
       log_tool_call "$NATIVE_TOOL" "$@"
       ;;
     "$TOOLPREFIX""as""$TOOLSUFFIX")
+      log_tool_call "$NATIVE_TOOL" "$@"
+      ;;
+    "$TOOLPREFIX""ar""$TOOLSUFFIX")
       log_tool_call "$NATIVE_TOOL" "$@"
       ;;
     *)

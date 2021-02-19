@@ -70,7 +70,7 @@ inject_plain()
       perl -p -i -e "s:HAS_JQ=false:HAS_JQ=true:" "$TARGET_GCC"
     fi
 
-    for t in gcc g++ clang clang++ as ld
+    for t in gcc g++ clang clang++ as ld ar
     do
       T=$(echo $t | tr '[a-z]+' '[A-Z]P')
       p=$(find_native "$PREFIX"$t"$SUFFIX")
@@ -78,7 +78,7 @@ inject_plain()
     done
 
     # make the other compiler use the fortify wrapper
-    for TARGET_COMPILER in g++ clang clang++ cc c++ as ld ${OLS_TARGET_COMPILER:-}
+    for TARGET_COMPILER in g++ clang clang++ cc c++ as ld ar ${OLS_TARGET_COMPILER:-}
     do
       # might fail, because if check-setup.sh is used, the directory is already
       # there, as well as the links
